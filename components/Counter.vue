@@ -1,12 +1,12 @@
 <template>
-  <div class="my-4 p-8 bg-white text-black">
+  <div class="m-4 p-8 bg-blue-300 text-black rounded-xl">
     <div class="text-2xl">{{ name }}</div>
-    <div class="text-xl">{{ counter.number }}</div>
+    <div class="text-4xl m-4">{{ counter.number }}</div>
 
-    <button class="p-4 mx-8" @click="up()">
+    <button class="px-4 py2 mr-8 bg-orange-200" @click="up()">
       Up
     </button>
-    <button class="p-4 mx-8" @click="down()">
+    <button class="px-4 py2 mr-8 bg-orange-200" @click="down()">
       Down
     </button>
   </div>

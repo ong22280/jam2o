@@ -5,7 +5,7 @@
     Pending...
   </div>
   <div v-else v-for="artist in artists" :key="artist.id">
-    <div class="m-4 text-blue-200">
+    <div class="m-4 text-blue-600">
       <nuxt-link :to="`/artists/${artist.id}`">
         {{ artist.name }}
       </nuxt-link>

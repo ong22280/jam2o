@@ -9,15 +9,10 @@ module.exports = {
     "./app.vue",
     "./node_modules/flowbite/**/*.{js,ts}"
   ],
-  daisyui: {
-    theme: ['light']
-  },
   theme: {
     extend: {},
   },
   plugins: [
-    require('flowbite/plugin'),
-    require("daisyui")
   ],
 }
 
