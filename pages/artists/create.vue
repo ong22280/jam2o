@@ -1,19 +1,17 @@
 <template>
-  <h1 class="text-3xl">Add Artist</h1>
-  <form @submit.prevent="onSubmit()">
-    <div>
-      <label for="name">Artist Name</label>
-      <p v-if="errorMessage" class="text-red-500">{{ errorMessage }}</p>
-      <input v-model="formData.name" type="text" id="name" />
-    </div>
-
-    <div>
-      <button type="submit">
-        Submit
-      </button>
-    </div>
-  </form>
-
+  <div class="max-w-lg p-4 mx-auto mt-16 bg-white rounded-lg shadow-lg">
+    <h1 class="mb-6 text-3xl font-semibold text-center">Add Artist</h1>
+    <form @submit.prevent="onSubmit()" class="space-y-6">
+      <div class="flex flex-col">
+        <label for="name" class="mb-2 font-medium">Artist Name</label>
+        <input v-model="formData.name" type="text" id="name" class="p-2 border border-gray-300 rounded" placeholder="Enter Artist Name" />
+        <p v-if="errorMessage" class="mt-2 text-red-500">{{ errorMessage }}</p>
+      </div>
+      <div class="flex justify-center">
+        <button type="submit" class="px-6 py-2 text-white transition bg-blue-500 rounded-full hover:bg-blue-700">Submit</button>
+      </div>
+    </form>
+  </div>
 </template>
 
 <script setup lang="ts">

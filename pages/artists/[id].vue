@@ -1,14 +1,19 @@
 <template>
-  <h1>{{ pageTitle }}</h1>
+  <div class="px-4 py-6">
+    <h1 class="mb-4 text-3xl font-bold">{{ pageTitle }}</h1>
 
-  <div v-if="artist" class="text-3xl mx-4">
-    {{ artist.name }} {{  artist.id }}
-  </div>
+    <div v-if="artist">
+      <div class="mb-4 text-2xl font-semibold">
+        {{ artist.name }} <span class="text-xl text-gray-500">({{ artist.id }})</span>
+      </div>
 
-  <div v-if="artist">
-    <div v-for="song in artist.songs" :key="song.id">
-      <div class="text-xl mx-6 my-2">
-        {{ song.title }}
+      <div class="pt-4 mt-4 border-t">
+        <h2 class="mb-2 text-xl font-semibold">Songs:</h2>
+        <ul class="space-y-2">
+          <li v-for="song in artist.songs" :key="song.id" class="pl-4 text-lg">
+            {{ song.title }}
+          </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -16,21 +21,7 @@
 
 <script setup lang="ts">
 const route = useRoute()
-// const config = useRuntimeConfig()
-// console.log(config.public.apiBaseURL)
 const pageTitle = `Artist No. ${route.params.id}`
-
-type Song = {
-  id: number,
-  title: string
-}
-
-type Artist = {
-  id: BigInteger,
-  name: string,
-  songs: Array<Song>
-}
-
 
 const { data: artist } = await useMyFetch<any>(
   `artist/${route.params.id}`,
